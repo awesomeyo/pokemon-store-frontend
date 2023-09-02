@@ -7,8 +7,16 @@ import {
   Button,
 } from "@material-tailwind/react";
 
+import { useGetProducts } from '../hooks/useProducts'
+
 export function EcommerceCard() {
+  const { data, isLoading, isError } = useGetProducts()
+  console.log(data)
   return (
+    <>
+    {isLoading && <span>fetching a character...</span>}
+    {isError && <span>Ups! it was an error 🚨</span>}
+    
     <Card className="m-4 w-80">
       <CardHeader shadow={false} floated={false} className="h-96">
         <img
@@ -45,5 +53,6 @@ export function EcommerceCard() {
         </Button>
       </CardFooter>
     </Card>
+  </>
   );
 }
