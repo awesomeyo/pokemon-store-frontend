@@ -25,13 +25,7 @@ export default function App() {
         </div>
         <div className="flex flex-wrap flex-grow">
           <EcommerceCard />
-          <EcommerceCard />
-          <EcommerceCard />
-          <EcommerceCard />
-          <EcommerceCard />
-          <EcommerceCard />
-          <EcommerceCard />
-          <EcommerceCard />
+         
         </div>
       </div>
       </QueryClientProvider>
