@@ -26,7 +26,7 @@ export function NavbarDefault() {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Pages
+          Home
         </a>
       </Typography>
       <Typography
@@ -36,7 +36,7 @@ export function NavbarDefault() {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Account
+          Gear
         </a>
       </Typography>
       <Typography
@@ -46,7 +46,7 @@ export function NavbarDefault() {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Blocks
+          Clothing
         </a>
       </Typography>
       <Typography
@@ -56,21 +56,31 @@ export function NavbarDefault() {
         className="p-1 font-normal"
       >
         <a href="#" className="flex items-center">
-          Docs
+          All Product
+        </a>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <a href="#" className="flex items-center">
+          LTX Exclusive
         </a>
       </Typography>
     </ul>
   );
 
   return (
-    <Navbar className="max-w-screen-xl px-4 py-2 m-4 mx-auto lg:px-8 lg:py-4">
-      <div className="container flex items-center justify-between mx-auto text-blue-gray-900">
+    <Navbar color= "transparent" fullWidth >
+      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
           href="#"
           className="mr-4 cursor-pointer py-1.5 font-medium"
         >
-          Material Tailwind
+          Pokemon Store
         </Typography>
         <div className="hidden lg:block">{navList}</div>
         <Button variant="gradient" size="sm" className="hidden lg:inline-block">
