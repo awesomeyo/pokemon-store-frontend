@@ -1,12 +1,15 @@
 interface Products {
   id: number;
-  title: string;
-  category: string;
-  price: string;
-  img: string;
-  desc: string;
+  name: string;
+  image: string;
+  price: number;
+  desc: {
+    weight: number,
+    height: number,
+    baseExperience: number
+  }
 }
-const URL_BASE = "https://jsonplaceholder.typicode.com/users";
+const URL_BASE = "https://pokeapi.co/api/v2/pokemon/";
 const headers = { "Content-type": "application/json" };
 const Data = [
   {
@@ -91,6 +94,18 @@ const Data = [
   },
 ];
 export const getProducts = async (): Promise<Products[]> => {
-  // return await (await fetch(URL_BASE)).json()
-  return Data; // temp return mock data first
+  const pokemons = await (await fetch(URL_BASE)).json()
+  const updatedPokemons = pokemons.results.map(async (pokemon: { url: RequestInfo | URL; }, index: number) => ({
+    id: index,
+    ...pokemon,
+    image: (await (await (fetch(pokemon.url))).json()).sprites.other.dream_world.front_default,
+    price: 10,
+    desc: {
+      weight: 1,
+      height: 50,
+      baseExperience: 1,
+    }
+  }
+  ))
+  return Promise.all(updatedPokemons);; // temp return mock data first
 };

@@ -11,7 +11,7 @@ import { useGetProducts } from "../hooks/useProducts";
 
 export function EcommerceCard() {
   const { data, isLoading, isError } = useGetProducts();
-  console.log(data);
+  console.log(data)
   return (
     <>
       {isLoading && <span>fetching a character...</span>}
@@ -20,18 +20,20 @@ export function EcommerceCard() {
         <Card className="m-4 w-80" key={product.id}>
           <CardHeader shadow={false} floated={false} className="h-96">
             <img
-              src={product.img}
+              src={product.image}
               alt="card-image"
-              className="object-cover w-full h-full"
+              // className="object-cover h-300 w-300 "
+              height="300"
+              width="300"
             />
           </CardHeader>
           <CardBody>
             <div className="flex items-center justify-between mb-2">
               <Typography color="blue-gray" className="font-medium">
-                {product.title}
+                {product.name}
               </Typography>
               <Typography color="blue-gray" className="font-medium">
-                {product.price}
+                Price : {product.price}
               </Typography>
             </div>
             <Typography
@@ -39,7 +41,22 @@ export function EcommerceCard() {
               color="gray"
               className="font-normal opacity-75"
             >
-              {product.desc}
+              Weight: {product.desc.weight}
+            </Typography>
+            <Typography
+              variant="small"
+              color="gray"
+              className="font-normal opacity-75"
+            >
+              Height: {product.desc.height}
+            </Typography>
+            <Typography
+              variant="small"
+              color="gray"
+              className="font-normal opacity-75"
+            >
+
+              BaseExperience: {product.desc.baseExperience}
             </Typography>
           </CardBody>
           <CardFooter className="pt-0">
